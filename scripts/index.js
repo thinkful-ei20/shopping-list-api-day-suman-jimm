@@ -7,11 +7,6 @@ $(document).ready(function() {
   
   api.getItems((items) => {
     items.forEach((item) => store.addItem(item));
-    
-    const item = store.items[2];
-    console.log('current name: ' + item.name);
-    store.findAndUpdate(item.id, { name: 'foobar' });
-    console.log('new name: ' + item.name);
 
     shoppingList.render();
   });
