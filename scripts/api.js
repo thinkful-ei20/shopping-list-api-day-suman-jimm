@@ -1,5 +1,5 @@
 'use strict';
-/* global */
+/* global store */
 
 // eslint-disable-next-line no-unused-vars
 const api = (function(){
@@ -22,6 +22,7 @@ const api = (function(){
       success : callback,
       error : (response) => {
         store.setError(response);
+        shoppingList.render();
       },
     });    
     
@@ -36,6 +37,7 @@ const api = (function(){
       success : callback,
       error : (response) => {
         store.setError(response);
+        shoppingList.render();
       },
     });
   }
@@ -47,6 +49,7 @@ const api = (function(){
       success : callback,
       error : (response) => {
         store.setError(response);
+        shoppingList.render();
       },
     });
   }

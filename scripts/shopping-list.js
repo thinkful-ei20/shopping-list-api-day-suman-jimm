@@ -38,7 +38,9 @@ const shoppingList = (function(){
   function render() {
     //checking error
     if(store.error !== null){
-      $('#error-pop-up').html(`<p color="red">ERROR OCCURED</p>`);
+      $('#error-pop-up').html('<p color="red">ERROR OCCURED</p>');
+    } else {
+      $('#error-pop-up').html('');
     }
     // Filter item list if store prop is true by item.checked === false
     let items = store.items;
@@ -67,6 +69,7 @@ const shoppingList = (function(){
 
       api.createItem(newItemName, (newItem) => {
         store.addItem(newItem);
+        store.setError(null);
         render();
       });
 
@@ -86,6 +89,7 @@ const shoppingList = (function(){
       const id = getItemIdFromElement(event.currentTarget);
       let foundItemCheckedState = store.findById(id).checked;
       api.updateItem(id, {checked: !foundItemCheckedState}, store.findAndUpdate(id, {checked: !foundItemCheckedState}));
+      store.setError(null);
       render();
     });
   }
@@ -98,6 +102,7 @@ const shoppingList = (function(){
       // delete the item
       api.deleteItem(id, store.findAndDelete(id));
       // render the updated shopping list
+      store.setError(null);
       render();
     });
   }
@@ -108,9 +113,8 @@ const shoppingList = (function(){
       const id = getItemIdFromElement(event.currentTarget);
       const newName = $(event.currentTarget).find('.shopping-item').val();
       console.log(newName);
-
       api.updateItem(id, {name : newName}, store.findAndUpdate(id, {name : newName}));
-      
+      store.setError(null);
       render();
     });
   }
