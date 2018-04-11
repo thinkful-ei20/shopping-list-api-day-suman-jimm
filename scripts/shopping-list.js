@@ -38,7 +38,7 @@ const shoppingList = (function(){
   function render() {
     //checking error
     if(store.error !== null){
-      $('#error-pop-up').html('<p color="red">ERROR OCCURED</p>');
+      $('#error-pop-up').html(`<p>${store.error.status} ERROR: ${store.error.statusText}</p>`);
     } else {
       $('#error-pop-up').html('');
     }
