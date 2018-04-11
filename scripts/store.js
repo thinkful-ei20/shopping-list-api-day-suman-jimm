@@ -31,11 +31,11 @@ const store = (function(){
   // };
 
   const findAndUpdate = function(id,newData){
-    const found = this.items.find(item => {
+    let found = this.items.find(item => {
       if(item.id === id)
-            return item;
+        return item;
     });
-    const updatedObject = Object.assign(found,newData);
+    Object.assign(found,newData);
   };
 
 
