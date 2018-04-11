@@ -36,6 +36,10 @@ const shoppingList = (function(){
   
   
   function render() {
+    //checking error
+    if(store.error !== null){
+      $('#error-pop-up').html(`<p color="red">ERROR OCCURED</p>`);
+    }
     // Filter item list if store prop is true by item.checked === false
     let items = store.items;
     if (store.hideCheckedItems) {

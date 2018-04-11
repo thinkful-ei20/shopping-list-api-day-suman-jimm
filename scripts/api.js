@@ -20,6 +20,9 @@ const api = (function(){
       data : newItem,
       contentType : 'application/json',
       success : callback,
+      error : (response) => {
+        store.setError(response);
+      },
     });    
     
   }
@@ -31,6 +34,9 @@ const api = (function(){
       data : JSON.stringify(updateData),
       contentType : 'application/json',
       success : callback,
+      error : (response) => {
+        store.setError(response);
+      },
     });
   }
 
@@ -39,6 +45,9 @@ const api = (function(){
       url : `${BASE_URL}/items/${id}`,
       method : 'DELETE',
       success : callback,
+      error : (response) => {
+        store.setError(response);
+      },
     });
   }
 
