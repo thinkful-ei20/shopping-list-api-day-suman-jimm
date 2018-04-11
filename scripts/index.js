@@ -12,6 +12,14 @@ $(document).ready(function() {
 
 });
 
+// api.getItems((items) => {
+//   const item = items[0];
+
+//   api.updateItem(item.id, { name: 'foobar',checked : 'dave'},() => {
+//     console.log('updated!');
+//   });
+// });
+
 //store.items.push(Item.create('apples'));
 
 // api.getItems(function(data) {
